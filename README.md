@@ -1,6 +1,6 @@
 # virtual-keyboard-vanilla
 
-Interactive Virtual Keyboard written in pure Javascript. Design is based off of the Yamaha Pianica, 37-note Melodica.
+Interactive Virtual Keyboard written in pure Javascript and held together by webpack. Design is based off of the Yamaha Pianica, 37-note Melodica.
 
 ## Issues / Bugs
 
