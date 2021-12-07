@@ -1,6 +1,5 @@
-//import * as Tone from "tone";
-
-const piano = document.getElementById("piano");
+import * as Tone from "tone";
+import "./piano.css";
 
 const keyboardKeys = [
   "q",
@@ -88,25 +87,6 @@ function noteRange(start, end) {
   return notes;
 }
 
-// function Key(props) {
-//   return (
-//     <button
-//       class={
-//         (props.note.length === 4 // determines note class 'C', 'C#' aka 'Cs', 'D'..etc
-//           ? props.note.charAt(0)
-//           : props.note.slice(0, 1) + "s") +
-//         " " +
-//         (props.note.includes("#") ? "black-key" : "white-key") // determines key class
-//       }
-//       onMouseDown={() => props.synth.triggerAttack(props.note)}
-//       onMouseUp={() => props.synth.triggerRelease("+0.2")}
-//       id={props.note.slice(props.note.length - 1)}
-//     />
-//   );
-// }
-//does not work, think of a better way to implement this
-// i think this can be an event handler in the App class
-
 // basically the idea is to get all the keyboard keys into the each note string, so it can
 // be mapped into the key components
 const start = "F4";
@@ -127,26 +107,45 @@ function strArrToStrArr(strs1, strs2) {
 var notesKeys = strArrToStrArr(notes, keyboardKeys);
 console.log(notesKeys);
 
-// function Piano(props) {
-//   const [synth, setSynth] = useState(() => new Tone.Synth());
+// initializing synth
+const outSynth = new Tone.Synth().toDestination();
 
-//   //adding keyboardKeys to note array
-//   //this will let us id every individual key for keypresses
+// adding html elements in vanilla javascript
+const piano = document.createElement("div");
+piano.classList.add("piano");
 
-//   useEffect(() => {
-//     synth.toDestination();
-//   }, [synth]);
+const pianoBoard = document.createElement("div");
+pianoBoard.classList.add("piano-board");
 
-//   return (
-//     <div class="piano">
-//       <div class="piano-board">
-//         {notesKeys.map((note) => (
-//           <Key note={note} synth={synth} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
+let k;
+// creating keys
+for (let n of notesKeys) {
+  k = document.createElement("button");
+
+  n.length === 4 // determines note class 'C', 'C#' aka 'Cs', 'D'..etc
+    ? k.classList.add(n.charAt(0))
+    : k.classList.add(n.slice(0, 1) + "s");
+
+  n.includes("#") ? k.classList.add("black-key") : k.classList.add("white-key");
+
+  k.id = n.slice(n.length - 1);
+  //k.innerText = k.id;
+
+  k.addEventListener("mousedown", (e) => {
+    k.focus();
+    outSynth.triggerAttack(n);
+  });
+
+  k.addEventListener("mouseup", (e) => {
+    k.blur();
+    outSynth.triggerRelease("+0.2");
+  });
+
+  pianoBoard.appendChild(k);
+}
+
+piano.appendChild(pianoBoard);
+document.body.appendChild(piano);
 
 //creates a js obj using first array as keys and second array as values
 function arrArrToKeyValue(arr1, arr2) {
@@ -161,7 +160,6 @@ function arrArrToKeyValue(arr1, arr2) {
 let notesOfKeys = arrArrToKeyValue(keyboardKeys, notes);
 console.log(notesOfKeys);
 
-const outSynth = new Tone.Synth().toDestination();
 //this is what makes the keyboard keys play notes
 document.addEventListener(
   "keydown",
@@ -193,14 +191,6 @@ document.addEventListener(
       button.blur();
       outSynth.triggerRelease("+0.2");
     }
-  },
-  false
-);
-
-document.addEventListener(
-  "mouseup",
-  () => {
-    document.activeElement.blur();
   },
   false
 );

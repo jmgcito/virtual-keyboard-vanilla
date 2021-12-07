@@ -7,11 +7,12 @@ button {
   outline: none;
   caret-color: transparent;
 }
+
 .jsOnly {
   display: none;
 }
 
-#piano {
+.piano {
   position: absolute;
   top: 40%;
   left: 38%;

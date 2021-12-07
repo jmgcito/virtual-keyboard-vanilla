@@ -1,0 +1,32 @@
+{
+  "name": "virtual-keyboard-vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmgcito/virtual-keyboard-vanilla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmgcito/virtual-keyboard-vanilla/issues"
+  },
+  "homepage": "https://github.com/jmgcito/virtual-keyboard-vanilla#readme",
+  "dependencies": {
+    "tone": "^14.7.77"
+  },
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
