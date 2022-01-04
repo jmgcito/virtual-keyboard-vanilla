@@ -36,10 +36,10 @@ button {
 .white-key {
   width: 50px;
   height: 200px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 10px 10px;
   background: rgb(232, 212, 196);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 10px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -6px 0px inset;
   margin-left: 4px;
   opacity: 1;
 }
@@ -49,7 +49,7 @@ button {
   height: 140px;
   border-radius: 0 0 5px 5px;
   background: black;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 10px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   opacity: 1;
   z-index: 1;
@@ -116,6 +116,7 @@ button {
     width: 25px;
     height: 100px;
     margin-left: 2px;
+    border-radius: 0 0 5px 5px;
   }
 
   .black-key {
