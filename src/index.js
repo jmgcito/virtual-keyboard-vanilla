@@ -111,6 +111,8 @@ console.log(notesKeys);
 const outSynth = new Tone.Synth().toDestination();
 
 // adding html elements in vanilla javascript
+const pianoChasis = document.createElement("div");
+pianoChasis.classList.add("piano-chasis");
 const piano = document.createElement("div");
 piano.classList.add("piano");
 
@@ -145,7 +147,8 @@ for (let n of notesKeys) {
 }
 
 piano.appendChild(pianoBoard);
-document.body.appendChild(piano);
+pianoChasis.appendChild(piano);
+document.body.appendChild(pianoChasis);
 
 //creates a js obj using first array as keys and second array as values
 function arrArrToKeyValue(arr1, arr2) {
