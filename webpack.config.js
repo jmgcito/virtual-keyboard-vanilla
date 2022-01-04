@@ -1,6 +1,12 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Virtual Keyboard",
+    }),
+  ],
   entry: "./src/index.js",
   output: {
     filename: "main.js",
